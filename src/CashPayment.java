@@ -1,4 +1,4 @@
-public class CashPayment extends Payment implements Refundable, Taxable{
+public class CashPayment extends Payment implements Refundable , Taxable{
 
     private double givenAmount;
 
@@ -15,9 +15,12 @@ public class CashPayment extends Payment implements Refundable, Taxable{
         System.out.println("Processing cash payment..... " );
 
         if(givenAmount >= getAmount()){
+
             double balance =   givenAmount - getAmount();
             System.out.println("Your balance is -  "+ balance);
+
         } else {
+
             System.out.println("Invalid amount given");
         }
 
@@ -31,18 +34,19 @@ public class CashPayment extends Payment implements Refundable, Taxable{
 
     @Override
     public String getRefundPolicy() {
+
         return "Payment will  be refunded only within 14 days";
     }
 
     @Override
     public double calculateTax() {
+
         return getTaxableAmount() * 0.15;
     }
 
     @Override
     public double getTaxableAmount() {
+
         return getAmount() * 0.50 ;
     }
-
-
 }
