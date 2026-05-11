@@ -11,7 +11,7 @@ public class OrderService {
 
     public void processOrder() {
 
-        System.out.println("Order is processing");
+        System.out.println("Order is processing..");
         paymentService.processPayment();
     }
 }
